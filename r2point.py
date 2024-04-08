@@ -28,10 +28,10 @@ class R2Point:
 
     # Лежит ли точка внутри "стандартного" прямоугольника?
     def is_inside(self, a, b):
-        return (((a.x <= self.x and self.x <= b.x) or
-                 (a.x >= self.x and self.x >= b.x)) and
-                ((a.y <= self.y and self.y <= b.y) or
-                 (a.y >= self.y and self.y >= b.y)))
+        return (((a.x <= self.x <= b.x) or
+                 (a.x >= self.x >= b.x)) and
+                ((a.y <= self.y <= b.y) or
+                 (a.y >= self.y >= b.y)))
 
     # Освещено ли из данной точки ребро (a,b)?
     def is_light(self, a, b):
@@ -44,8 +44,11 @@ class R2Point:
             return self.x == other.x and self.y == other.y
         return False
 
+    # def __str__(self):
+    #     return f"({self.x}, {self.y})"
 
-if __name__ == "__main__":  # pragma: no cover
+
+if __name__ == "__main__":
     x = R2Point(1.0, 1.0)
     print(type(x), x.__dict__)
     print(x.dist(R2Point(1.0, 0.0)))

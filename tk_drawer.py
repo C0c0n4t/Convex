@@ -1,4 +1,6 @@
 from tkinter import *
+import time
+from r2point import R2Point
 
 # Размер окна
 SIZE = 600
@@ -41,21 +43,18 @@ class TkDrawer:
         self.root.update()
 
     # Рисование точки
-    def draw_point(self, p):
+    def draw_point(self, p: R2Point):
         self.canvas.create_oval(
             x(p) + 1, y(p) + 1, x(p) - 1, y(p) - 1, fill="black")
         self.root.update()
 
     # Рисование линии
-    def draw_line(self, p, q):
+    def draw_line(self, p: R2Point, q: R2Point):
         self.canvas.create_line(x(p), y(p), x(q), y(q), fill="black", width=2)
         self.root.update()
 
 
 if __name__ == "__main__":
-
-    import time
-    from r2point import R2Point
     tk = TkDrawer()
     tk.clean()
     tk.draw_point(R2Point(2.0, 2.0))
